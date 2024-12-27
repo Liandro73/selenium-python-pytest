@@ -38,5 +38,5 @@ jobs:
       - name: Upload Test Artifacts Allure Report
         uses: actions/upload-artifact@v4
         with:
-          name: logs
+          name: allure-results
           path: /home/runner/work/selenium-python-pytest/selenium-python-pytest/allure-results/
