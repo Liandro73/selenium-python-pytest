@@ -1,0 +1,11 @@
+selenium==4.27.1
+pytest~=8.3.4
+trio~=0.28.0
+pytest-trio
+pytest-rerunfailures
+flake8
+requests~=2.32.3
+allure-pytest~=2.13.5
+allure-python-commons~=2.13.5
+urllib3~=2.3.0
+webdriver-manager~=4.0.2

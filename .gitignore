@@ -2,6 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+allure-results/
+logs/
+samples/
+.DS_Store
 
 # C extensions
 *.so
