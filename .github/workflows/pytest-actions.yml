@@ -23,11 +23,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run test
+      - name: Run test pytest
         run: pytest --html logs/report.html src/
 
-      - name: Upload Test Artifacts
+      - name: Run test allure
+        run: pytest --alluredir allure-results src/
+
+      - name: Upload Test Artifacts Pytest html
         uses: actions/upload-artifact@v4
         with:
           name: logs
           path: /home/runner/work/selenium-python-pytest/selenium-python-pytest/logs/
+
+      - name: Upload Test Artifacts Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: /home/runner/work/selenium-python-pytest/selenium-python-pytest/allure-results/
