@@ -9,3 +9,4 @@ allure-pytest~=2.13.5
 allure-python-commons~=2.13.5
 urllib3~=2.3.0
 webdriver-manager~=4.0.2
+pytest-html~=4.1.1
