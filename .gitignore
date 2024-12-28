@@ -6,6 +6,7 @@ allure-results/
 logs/
 samples/
 .DS_Store
+.idea/
 
 # C extensions
 *.so

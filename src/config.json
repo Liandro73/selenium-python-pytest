@@ -1,0 +1,5 @@
+{
+  "headless_mode": true,
+  "base_url": "https://www.saucedemo.com/",
+  "timeout": 10
+}

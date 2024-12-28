@@ -10,24 +10,24 @@ class PageObjectHelper:
     wait: WebDriverWait
 
     @classmethod
-    def wait_until_element_is_visible(self, driver, element):
-        self.wait = WebDriverWait(driver, timeout=self.time)
-        self.wait.until(ec.visibility_of(element))
+    def wait_until_element_is_visible(cls, driver, element):
+        cls.wait = WebDriverWait(driver, timeout=cls.time)
+        cls.wait.until(ec.visibility_of(element))
 
     @classmethod
-    def clear_and_type_in_element(self, driver, element, text):
-        self.wait_until_element_is_visible(driver, element)
+    def clear_and_type_in_element(cls, driver, element, text):
+        cls.wait_until_element_is_visible(driver, element)
         element.clear()
         element.send_keys(text)
 
     @classmethod
-    def click_on_element(self, driver, element):
-        self.wait_until_element_is_visible(driver, element)
+    def click_on_element(cls, driver, element):
+        cls.wait_until_element_is_visible(driver, element)
         element.click()
 
     @classmethod
-    def get_text_from_element_and_compare(self, driver, element, text):
-        self.wait_until_element_is_visible(driver, element)
+    def get_text_from_element_and_compare(cls, driver, element, text):
+        cls.wait_until_element_is_visible(driver, element)
         text_element = element.text
         assert(text_element == element.text)
         print("")

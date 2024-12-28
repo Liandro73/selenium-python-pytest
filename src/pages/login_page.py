@@ -20,10 +20,10 @@ class LoginPage(PageObjectHelper):
 
     @classmethod
     @allure.step("Verify if is Login Page")
-    def verify_if_is_login_page(self, driver):
-        driver.get("https://www.saucedemo.com/")
-        logo_login_page: WebElement = driver.find_element(*self.logo_login_page_locator)
-        self.wait_until_element_is_visible(driver, logo_login_page)
+    def verify_if_is_login_page(cls, driver, config):
+        driver.get(config["base_url"])
+        logo_login_page: WebElement = driver.find_element(*cls.logo_login_page_locator)
+        cls.wait_until_element_is_visible(driver, logo_login_page)
 
         allure.attach(
             driver.get_screenshot_as_png(),
@@ -33,28 +33,28 @@ class LoginPage(PageObjectHelper):
 
     @classmethod
     @allure.step("Fill username field")
-    def fill_username_field(self, driver, user:str):
-        input_user: WebElement = driver.find_element(*self.input_user_locator)
-        self.clear_and_type_in_element(driver, input_user, user)
+    def fill_username_field(cls, driver, user:str):
+        input_user: WebElement = driver.find_element(*cls.input_user_locator)
+        cls.clear_and_type_in_element(driver, input_user, user)
 
     @classmethod
     @allure.step("Fill password field")
-    def fill_password_field(self, driver, password:str):
-        input_password: WebElement = driver.find_element(*self.input_password_locator)
-        self.clear_and_type_in_element(driver, input_password, password)
+    def fill_password_field(cls, driver, password:str):
+        input_password: WebElement = driver.find_element(*cls.input_password_locator)
+        cls.clear_and_type_in_element(driver, input_password, password)
 
     @classmethod
     @allure.step("Click on Login button")
-    def click_on_login_button(self, driver):
-        btn_login: WebElement = driver.find_element(*self.btn_login_locator)
-        self.click_on_element(driver, btn_login)
+    def click_on_login_button(cls, driver):
+        btn_login: WebElement = driver.find_element(*cls.btn_login_locator)
+        cls.click_on_element(driver, btn_login)
 
     @classmethod
     @allure.step("Verify if error message is showed: Username is required")
-    def verify_if_error_message_is_showed__empty_username(self, driver):
-        error_empty_user: WebElement = driver.find_element(*self.error_empty_user_locator)
-        self.wait_until_element_is_visible(driver, error_empty_user)
-        self.get_text_from_element_and_compare(driver, error_empty_user, 'Epic sadface: Username is required')
+    def verify_if_error_message_is_showed__empty_username(cls, driver):
+        error_empty_user: WebElement = driver.find_element(*cls.error_empty_user_locator)
+        cls.wait_until_element_is_visible(driver, error_empty_user)
+        cls.get_text_from_element_and_compare(driver, error_empty_user, 'Epic sadface: Username is required')
 
         allure.attach(
             driver.get_screenshot_as_png(),
@@ -64,10 +64,10 @@ class LoginPage(PageObjectHelper):
 
     @classmethod
     @allure.step("Verify if error message is showed: Password is required")
-    def verify_if_error_message_is_showed__empty_password(self, driver):
-        error_empty_password: WebElement = driver.find_element(*self.error_empty_password_locator)
-        self.wait_until_element_is_visible(driver, error_empty_password)
-        self.get_text_from_element_and_compare(driver, error_empty_password, 'Epic sadface: Password is required')
+    def verify_if_error_message_is_showed__empty_password(cls, driver):
+        error_empty_password: WebElement = driver.find_element(*cls.error_empty_password_locator)
+        cls.wait_until_element_is_visible(driver, error_empty_password)
+        cls.get_text_from_element_and_compare(driver, error_empty_password, 'Epic sadface: Password is required')
 
         allure.attach(
             driver.get_screenshot_as_png(),
@@ -77,10 +77,10 @@ class LoginPage(PageObjectHelper):
 
     @classmethod
     @allure.step("Verify if error message is showed: Sorry, this user has been locked out.")
-    def verify_if_error_message_is_showed__user_locked_out(self, driver):
-        error_user_locked_out: WebElement = driver.find_element(*self.error_user_locked_out_locator)
-        self.wait_until_element_is_visible(driver, error_user_locked_out)
-        self.get_text_from_element_and_compare(driver, error_user_locked_out, 'Epic sadface: Sorry, this user has been locked out.')
+    def verify_if_error_message_is_showed__user_locked_out(cls, driver):
+        error_user_locked_out: WebElement = driver.find_element(*cls.error_user_locked_out_locator)
+        cls.wait_until_element_is_visible(driver, error_user_locked_out)
+        cls.get_text_from_element_and_compare(driver, error_user_locked_out, 'Epic sadface: Sorry, this user has been locked out.')
 
         allure.attach(
             driver.get_screenshot_as_png(),
@@ -90,10 +90,10 @@ class LoginPage(PageObjectHelper):
 
     @classmethod
     @allure.step("Verify if error message is showed: Username and password do not match any user in this service")
-    def verify_if_error_message_is_showed__user_or_password_invalids(self, driver):
-        error_invalid_user_and_password: WebElement = driver.find_element(*self.error_invalid_user_and_password_locator)
-        self.wait_until_element_is_visible(driver, error_invalid_user_and_password)
-        self.get_text_from_element_and_compare(driver, error_invalid_user_and_password, 'Epic sadface: Username and password do not match any user in this service')
+    def verify_if_error_message_is_showed__user_or_password_invalids(cls, driver):
+        error_invalid_user_and_password: WebElement = driver.find_element(*cls.error_invalid_user_and_password_locator)
+        cls.wait_until_element_is_visible(driver, error_invalid_user_and_password)
+        cls.get_text_from_element_and_compare(driver, error_invalid_user_and_password, 'Epic sadface: Username and password do not match any user in this service')
 
         allure.attach(
             driver.get_screenshot_as_png(),

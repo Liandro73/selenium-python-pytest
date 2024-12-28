@@ -10,10 +10,10 @@ Install dependencies using pip
 
 ## Run Automated Tests
 
-4. Run all tests without using Allure Rpeport
+Run all tests without using Allure Rpeport
 
 ```bash
-  pytest --html logs/report.html src/
+  pytest --browser=<browser_name> --html logs/report.html src/
 ```
 
 ## Execute a specific example
@@ -21,7 +21,7 @@ Install dependencies using pip
 To run a specific Selenium Python example, use the following command:
 
 ```bash
-  pytest --html logs/report.html path/to/test_script.py
+  pytest --browser=<browser_name> --html logs/report.html path/to/test_script.py
 ```
 
 Make sure to replace `path/to/test_script.py` with the path and name of the example you want to run.
@@ -34,7 +34,7 @@ You just need to choose one of the tests from "tests" directory and click "Run t
 
 To generate all tests report using Allure you need to run tests by command first:
 ```
-$ pytest --alluredir <reports_directory_path> src/
+$ pytest --browser=<browser_name> --alluredir <reports_directory_path> src/
 ```
 After that you need to use command:
 ```

@@ -15,8 +15,15 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Chrome
-        uses: nanasess/setup-chromedriver@v2.2.2
+      - name: Setup Chrome
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          install-chromedriver: true
+
+      - name: Setup firefox
+        uses: browser-actions/setup-firefox@v1
+        with:
+          install-geckodriver: true
 
       - name: Install packages in requirements.txt
         run: |
@@ -24,10 +31,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run test pytest
-        run: pytest --html logs/report.html src/
+        run: pytest --browser=firefox --html logs/report.html src/
 
       - name: Run test allure
-        run: pytest --alluredir allure-results src/
+        run: pytest --browser=firefox --alluredir allure-results src/
 
       - name: Upload Test Artifacts Pytest html
         uses: actions/upload-artifact@v4
