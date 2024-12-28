@@ -19,7 +19,9 @@ jobs:
           install-chromedriver: true
 
       - name: Setup firefox
-        uses: browser-actions/setup-firefox@v1
+      - uses: browser-actions/setup-firefox@v1
+        with:
+          install-geckodriver: true
 
       - name: Install packages in requirements.txt
         run: |
