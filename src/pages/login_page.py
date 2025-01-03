@@ -6,6 +6,8 @@ from src.pages.helper.pages_helper import PageObjectHelper
 
 class LoginPage(PageObjectHelper):
 
+    BASE_URL = 'https://www.saucedemo.com/'
+
     # Locators
     logo_login_page_locator = By.CLASS_NAME, "login_logo"
     input_user_locator = By.ID, "user-name"
@@ -20,8 +22,8 @@ class LoginPage(PageObjectHelper):
 
     @classmethod
     @allure.step("Verify if is Login Page")
-    def verify_if_is_login_page(cls, driver, config):
-        driver.get(config["base_url"])
+    def verify_if_is_login_page(cls, driver):
+        driver.get(cls.BASE_URL)
         logo_login_page: WebElement = driver.find_element(*cls.logo_login_page_locator)
         cls.wait_until_element_is_visible(driver, logo_login_page)
 

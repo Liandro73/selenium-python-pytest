@@ -11,10 +11,10 @@ class ProductsPage(PageObjectHelper):
 
     @classmethod
     @allure.step("Verify if is Login Page")
-    def verify_if_is_products_page(self, driver):
-        text_products_page: WebElement = driver.find_element(*self.text_products_page_locator)
-        self.wait_until_element_is_visible(driver, text_products_page)
-        self.get_text_from_element_and_compare(driver, text_products_page, 'Products')
+    def verify_if_is_products_page(cls, driver):
+        text_products_page: WebElement = driver.find_element(*cls.text_products_page_locator)
+        cls.wait_until_element_is_visible(driver, text_products_page)
+        cls.get_text_from_element_and_compare(driver, text_products_page, 'Products')
 
         allure.attach(
             driver.get_screenshot_as_png(),
